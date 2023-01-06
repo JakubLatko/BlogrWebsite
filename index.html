@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <title>Blogr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+</head>
+<body>
+  
+  <section class="topSection">
+    <div class="topWrapper">
+      <div class="menuWrapper">
+        <a href="#" class="logoImage"><img src="images/logo.svg" ></a>
+        <nav class="primaryNavigation closed" aria-expanded="false">
+          <ul class="primaryList" role="list">
+            <li tabindex="1" class="navCategory" id="firstCategory">Product
+              <img class="arrowImage" src="images/icon-arrow-light.svg" id="arrow1" alt="">
+              <ul class="subList closed" id="firstSublist">
+                <li tabindex="1" class="subItem">Overview</li>
+                <li tabindex="1" class="subItem">Pricing</li>
+                <li tabindex="1" class="subItem">Marketplace</li>
+                <li tabindex="1" class="subItem">Features</li>
+                <li tabindex="1" class="subItem">Integrations</li>
+              </ul>
+            </li>
+            <li tabindex="1" class="navCategory" id="secondCategory">Company
+              <img class="arrowImage" src="images/icon-arrow-light.svg" id="arrow2" alt="">
+              <ul  class="subList closed" id="secondSublist">
+                <li tabindex="1" class="subItem">About</li>
+                <li tabindex="1" class="subItem">Team</li>
+                <li tabindex="1" class="subItem">Blog</li>
+                <li tabindex="1" class="subItem">Careers</li>
+              </ul>
+            </li>
+            <li  tabindex="1" class="navCategory" id="thirdCategory">Connect
+              <img class="arrowImage" src="images/icon-arrow-light.svg" id="arrow3" alt="">
+              <ul class="subList closed" id="thirdSublist">
+                <li tabindex="1" class="subItem">Contact</li>
+                <li tabindex="1" class="subItem">Newsletter</li>
+                <li tabindex="1" class="subItem">LinkedIn</li>
+              </ul>
+            </li>
+            <div class="menuButtonsWrapperMobile">
+              <button class="topButton" data-type="inverted">Login</button>
+              <button class="topButton" >Sign Up</button>
+            </div>
+
+          </ul>
+        </nav>
+        <button class="mobileMenuButton">
+          <img class="menuOpener" src="images/icon-hamburger.svg" alt="">
+        </button>
+    
+      <div class="menuButtonsWrapper">
+        <button class="topButton" data-type="inverted">Login</button>
+        <button class="topButton" >Sign Up</button>
+      </div>
+    </div>
+  </div>
+  <div class="CTAWrapper">
+    <h1>A modern publishing platform</h1>
+    <h4>Grow your audience and build your online brand</h4>
+    <div class="CTAButtons fw-500">
+      <Button >Start for Free</Button>
+      <Button data-type="inverted" >Learn More</Button>
+    </div>
+  </div>
+   <img src="images/bg-pattern-intro-desktop.svg" class="CTAbgPicture"> 
+  </section>
+
+  <section class="secondSection">
+
+    <h2 class="secondSectionHeader">Designed for the future</h2>
+    <div class="secondSectionContent">
+      <div class="perksWrapper">
+        <div class="perk">
+          <h3>Introducing an extensible editor</h3>
+          <p>
+          Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. 
+          The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, 
+          videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or 
+          change the looks of a blog.
+          </p>
+        </div>
+        <div class="perk">
+          <h3>Robust content management</h3>
+          <p>
+          Flexible content management enables users to easily move through posts. Increase the usability of your blog 
+          by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.
+          </p>
+        </div>
+      </div>
+      <img class="editorImage" src="images/illustration-editor-desktop.svg">
+      <img class="editorImageMobile" src="images/illustration-editor-mobile.svg">
+    </div>
+  </section >
+  
+  <section class="thirdSection">
+    <img class="phoneImage" src="images/illustration-phones.svg"> 
+      
+      <div class="thirdSectionContent">
+        <h2>State of the Art Infrastructure</h2>
+        <p>With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. 
+        This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.
+        </p>
+      </div>
+   
+  </section>
+  <section class="fourthSection">
+    <img class="laptopImage" src="images/illustration-laptop-desktop.svg">
+    <img class="laptopImageMobile" src="images/illustration-laptop-mobile.svg">
+    <div class="perksWrapper">
+      <div class="perk">
+        <h3>Free, open, simple</h3>
+        <p>
+        Blogr is a free and open source application backed by a large community of helpful developers. It supports 
+        features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, 
+        and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.
+        </p>
+      </div>
+      <div class="perk">
+        <h3>Powerful tooling</h3>
+        <p>
+        Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but
+        capable of producing even the most complicated sites.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="footerSection">
+    <img class="bottomLogo" src="images/logo.svg">
+    <div class="bottomNavCategory">Product
+      
+        <a href="#">Overview</li></a>
+        <a href="#">Pricing</a>
+        <a href="#">Marketplace</a>
+        <a href="#">Features</a>
+        <a href="#">Integrations</a>
+      
+    </div>
+    <div class="bottomNavCategory">Company
+      
+        <a href="#">About  </a>
+        <a href="#">Team</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+      
+    </div>
+    <div class="bottomNavCategory">Connect
+
+        <a href="#">Contact</a>
+        <a href="#">Newsletter</a>
+        <a href="#">LinkedIn</a>
+     
+    </div>
+</section>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>

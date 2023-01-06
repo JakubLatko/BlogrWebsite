@@ -1,0 +1,875 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/////////Variables/////////
+$fontFamilyOne: 'Overpass', sans-serif;
+$fontFamilyTwo: 'Ubuntu', sans-serif;
+
+$footerTextColor: hsl(240, 2%, 79%);
+$footerBGColor:hsl(240, 10%, 16%);
+
+$ctaTextColor:hsl(356, 100%, 66%);
+$ctaHoverColor: hsl(355, 100%, 74%);
+
+$primaryHeader:hsl(208, 49%, 24%);
+$bodyCopy:hsl(207, 13%, 34%);
+
+$CTAGradientFirst:hsl(13, 100%, 72%);
+$CTAGradientSecond:hsl(353, 100%, 62%);
+
+$bodyGradientFirst:hsl(237, 17%, 21%);
+$bodyGradientSecond:hsl(237, 23%, 32%);
+
+@mixin flexRow{
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexColumn{
+  display:flex;
+  flex-direction: column;
+}
+@mixin flexCenter{
+    align-items: center;
+    justify-items: center;
+}
+////////////CONTENT///////////////////
+
+
+body{
+  font-size: 16px;
+  font-family: $fontFamilyTwo;
+  background-color: white;
+  display: flex;
+  @include flexColumn();
+  align-items:center;
+  z-index: 1;
+}
+
+.topSection{
+  width: clamp(70vw, 1440px, 100vw);
+  background-image: linear-gradient( 90deg, $CTAGradientFirst 0%, $CTAGradientSecond 100%) !important;
+  height:fit-content;
+  border-bottom-left-radius: 50px;
+  @include flexColumn();
+  background-image: url('images/bg-pattern-intro-desktop.svg');
+ 
+}
+
+.topWrapper{
+  //outline: 1px solid limegreen;
+  @include flexRow();
+  align-items: center;
+  justify-items:center ;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  flex-grow: 1;
+
+}
+.menuWrapper{
+  width: 100%;
+  @include flexRow();
+  padding: 5vh 5vw;
+  margin: 0;
+  justify-content: space-evenly;
+  position: relative;
+  align-items: center;
+  z-index: 10;
+}
+
+.logoImage{
+  height: auto;
+}
+.primaryNavigation{
+  @include flexRow();
+  z-index:10
+}
+
+.primaryList{
+  @include flexRow();
+  color:white;
+  padding-inline: 5vw;
+}
+.primaryListHover{
+  cursor: pointer;
+}
+.navCategory{
+  @include flexRow();
+   padding-inline: 10%; 
+  width: fit-content;
+  align-items: center;
+  gap: 1%;
+  justify-items: center;
+  position: relative;
+  //padding-block:10% ;
+}
+.navCategory::before{
+  content: '';
+  position: absolute;
+ // background-color: red;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  left: 0;
+}
+.navCategory:hover,
+.navCategory:focus{
+  cursor: pointer;
+  text-decoration: underline;
+  .subList{
+    @include flexColumn();
+  }
+  img{
+    rotate: 180deg;
+    transition: 200ms ease-in-out;
+  }
+}
+.navCategory img{
+  height:auto;
+  padding-inline: 10%;
+  align-self: center;
+}
+.subList{
+  display: none;
+  
+  background-color: white;
+  width: 15ch;
+  padding: 15%;
+  top: 110%;
+  list-style: none;
+  color: $bodyCopy;
+  border-radius: 5%;
+  position: absolute;
+  transition: display 500ms ease-in;
+}
+
+
+.subItem{
+  padding-block: 5%;
+}
+.subItem:Hover{
+  color: $primaryHeader;
+  font-weight: 700;
+}
+.mobileMenuButton{
+  display: none ;
+}
+
+
+.menuButtonsWrapper{
+  @include flexRow();
+  margin-left: auto;
+}
+.menuButtonsWrapperMobile{
+  display: none;
+}
+.topButton{
+  height: fit-content;
+  padding: 0.3em 1.25em;
+  font-size: 1.2rem;
+  border-radius: 100vw;
+  border:none;
+  color: $ctaTextColor;
+  font-family:$fontFamilyTwo ;
+}
+
+.topButton[data-type="inverted"]{
+  background: transparent;
+  color: white;
+  
+}
+.topButton:Hover,
+.topButton:focus{
+  cursor:pointer;
+  color: white;
+  background-color: $ctaHoverColor;
+  transition: 200ms ease-in-out;
+
+}
+.topButton[data-type="inverted"]:Hover,
+.topButton[data-type="inverted"]:focus{
+  background-color: transparent;
+}
+.CTAbgPicture{
+  position: absolute;
+  z-index: 0;
+  top: -80%;
+  left: 0%;
+}
+
+
+.CTAWrapper{
+  z-index: 5;
+  padding-bottom: 5%;
+  @include flexColumn();
+  align-self: center;
+  color: white;
+  align-items: center;
+  text-align: center;
+  font-family: $fontFamilyOne;
+  h1{
+    font-size: clamp(1rem, 3vw, 4rem);
+    
+    flex-wrap: nowrap;
+    width: 60ch;
+  }
+  h4{
+    padding-bottom:2% ;
+  }
+}
+
+.CTAButtons{
+  font-family: $fontFamilyTwo;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 1rem;
+  button{
+    text-align: center;
+    font-size: clamp(1rem, 1vw, 1.5rem );
+    border-radius: 100vw;
+    border: none;
+    padding: 0.25em 1em;
+    background-color: white;
+    color: $ctaTextColor;
+  }
+  button[data-type="inverted"]{
+    background-color: $ctaTextColor;
+    color: white;
+    border: 1px solid white;
+  }
+  button:hover{
+    cursor: pointer;
+    color: white;
+    background-color: $ctaHoverColor;
+    transition: 250ms ease-in;
+  }
+  button[data-type="inverted"]:hover{
+    color: $ctaHoverColor;
+    background-color: white;
+  }
+}
+.closed{
+  display: flex;
+  .subList{
+    display: none;
+  }
+}
+.opened{
+  display: flex;
+}
+@media  only screen and (max-width: 800px){
+  .topSection{
+     background-image: url("images/bg-pattern-intro-mobile.svg"),
+     linear-gradient($CTAGradientFirst 0%,
+      $CTAGradientSecond 100%) !important;
+     border-bottom-left-radius: 15%;
+    background-position: 40% 50%;
+    position: relative;
+
+  }
+  .menuWrapper{
+    width: 100vw;
+    justify-content: space-between;
+  }
+  .primaryList{
+    @include flexColumn();
+    text-align:center;
+    align-items: center;
+  }
+  .primaryNavigation{
+    text-decoration: none;
+    display: fixed;
+    position: absolute;
+    top: 100%;
+    left: 5vw;
+    background-color: white;
+    @include flexColumn();
+    color: $ctaTextColor;
+    width: 90vw;
+    height:fit-content;
+    text-align: center;
+    border-radius: 2vw;
+    box-shadow: -10px 10px 20px  rgba(0, 0, 0, 0.445) ;
+    .navCategory{
+      text-decoration: none;
+      color: $primaryHeader;
+      font-weight: 700;
+      @include flexColumn();
+      font-size: clamp(1rem, 7vw, 1.5rem);
+      position: relative;
+      padding-block:5% ;
+      img{
+        position: absolute;
+        width:inherit;
+        color: $CTAGradientFirst;
+       
+        right: -5%;
+        top: 50%;
+       
+        z-index: 100;
+       
+      }
+     
+    }
+    
+   .subList{
+    font-weight: 500;
+    position: relative;
+    @include flexColumn();
+    background-color: #dfdede67;
+    width: 80vw;
+    padding-block: 5%;
+    margin-block:10%;
+    height: fit-content;
+    color:$primaryHeader ;
+    text-decoration: none;
+    .subItem{
+      opacity: 1;
+      color: $bodyCopy;
+      height: fit-content;
+      text-decoration: none;
+    }
+   }
+  }
+  .menuButtonsWrapper{
+    display: none;
+  }
+  .mobileMenuButton{
+   
+    display: flex;
+    background: transparent;
+    border:none;
+  }
+  .menuButtonsWrapperMobile{
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.151);
+    display: flex;
+    @include flexColumn();
+    flex-grow: 1;
+    align-items: center;
+    justify-content: spa;
+    .topButton{
+      width: fit-content;
+      color: white;
+      font-weight: 600;
+      //outline:  1px solid limegreen;
+      margin-block: 5%;
+      font-size: clamp(1rem, 5vw, 1.5rem);
+      background: linear-gradient(90deg, $CTAGradientFirst 0%,
+      $CTAGradientSecond 100%);
+      padding: 0.5em 2em;
+    }
+  .topButton[data-type="inverted"]{
+    color: $primaryHeader;
+    background: transparent;
+  }
+  }
+  .CTAWrapper{
+    font-weight: 400;
+    h1{
+      width: 14ch;
+      font-size: clamp(2rem, 8vw, 5rem);
+      padding-block: 5%;
+    }
+    p{
+      font-weight: 100;
+      width: 50ch;
+      font-size: clamp(0.5rem, 0.1rem, 1rem);
+      opacity: 0.1;
+      max-width: 80vw;
+    }
+  }
+  .CTAButtons{
+    padding-block:10% ;
+    padding-bottom: 30%;
+    padding-inline: 5%;
+    gap: 0.5rem;
+  button{
+    font-weight: 700;
+    font-size: clamp(1rem, 1vw, 1.5rem );
+   
+    border: none;
+    padding: 0.4em 1em;
+    background-color: white;
+    color: $ctaTextColor;
+  }}
+  .closed{
+    display: none ;
+
+  }
+  .opened{
+    display: flex ;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+////////////////SECOND SECTION////////////////
+ 
+.secondSection{
+  width: clamp(70vw, 1440px, 100vw);
+  background-color: white;
+  color: $primaryHeader;
+  //padding-block : 5%;
+  @include flexColumn();
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.secondSectionHeader{
+  font-size: clamp(2rem, 2vw, 4rem);
+  //padding-top: 5%;
+  transform:translateY(150%);
+  //font-size: clamp(1rem, 3vw, 2rem)
+}
+.secondSectionContent{
+  @include flexRow();
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+}
+.perksWrapper{
+  width: 50%;
+  @include flexColumn();
+}
+.perk{
+  @include flexColumn();
+  padding: 5%;
+  h3{
+    font-size: clamp(1.5rem, 1.3vw, 2.5rem);
+    padding-block: 3%;
+    letter-spacing: 2;
+  }
+  p{
+    color: $bodyCopy;
+    width: 60ch;
+    line-height: 2;
+  }
+}
+.editorImage{
+  width: clamp(30%, 50%, 70%);
+  height: auto;
+  flex-grow: 1;
+  right: 0;
+  bottom: 0;
+}
+.editorImageMobile{
+  display: none;
+}
+@media  only screen and (max-width: 800px){
+  .secondSection{
+    padding-block: 20%;
+  }
+.secondSectionContent{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.secondSectionHeader{
+  transform: none;
+  font-size: clamp(1rem, 7vw, 3rem);
+ 
+}
+.perksWrapper{
+  width: 90vw;
+  padding:5% ;
+  align-self: center;
+  justify-self: center;
+  overflow: hidden;
+}
+
+.perk{
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  padding-block: 5%;
+  //padding-inline:5% ;
+  h3{
+    font-size: clamp(1rem, 7vw, 2rem);
+    padding-block: 5%;
+  }
+  p{
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+    color: $bodyCopy;
+    font-size: clamp(0.5rem, 4.5vw, 1rem);
+  }
+}
+
+
+.editorImage{
+  display: none;
+}
+.editorImageMobile{
+  display: block;
+  width: 100vw;
+}
+}
+
+@media only screen and (max-width:1200px){
+  .secondSectionContent{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .perk{
+    height: fit-content;
+    text-align: center;
+    overflow: hidden;
+    width: fit-content;
+    h3{
+      text-align: center;
+    }
+  }
+
+  .secondSectionHeader{
+    translate: none;
+  }
+  
+}
+
+
+///////////////////////////////////third section///////////////////////
+.thirdSection{
+  margin-top: 3%;
+  width: clamp(70vw, 1440px, 100vw);
+  @include flexRow();
+  background-image: url('images/bg-pattern-circles.svg'),
+   linear-gradient(90deg, $bodyGradientFirst 0%, $bodyGradientSecond 100%);
+  background-repeat:no-repeat ;
+  background-position: -30% 90%;
+  border-top-right-radius: 5vw;
+  border-bottom-left-radius: 5vw;
+  
+  color: white;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 45vh;
+  
+  
+  position: relative;
+}
+
+.phoneImage{
+  align-self: center;
+  transform:translateY(5%);
+  z-index: 5;
+  
+}
+.thirdSectionContent{
+ 
+  @include flexColumn();
+  font-family: $fontFamilyOne;
+  z-index: 5;
+  
+  h2{
+    letter-spacing: 2;
+    padding-block: 3%;
+    font-size: clamp(1rem, 3vw, 3rem);
+  }
+  p{
+    line-height: 2;
+    width: 55ch;
+    opacity: 0.7;
+  }
+}
+
+
+
+@media  only screen and (max-width: 800px){
+  .thirdSection{
+    padding-bottom: 0;
+    margin-top:60%;
+    @include flexColumn();
+    height: 70vh;
+    padding-block: 10%;
+    background-position: 50% 180%;
+    background-size:200%;
+    background-image:url('images/bg-pattern-circles.svg'), linear-gradient(180deg, $bodyGradientFirst 0%, $bodyGradientSecond 100%) !important;
+    border-bottom-left-radius: 20vw;
+    border-top-right-radius: 20vw;
+  }
+  .phoneImage{
+    transform:translateY(-80%);
+    position: absolute;
+  }
+  .thirdSectionContent{
+    width: 100vw;
+    padding-block:5%;
+    padding-bottom: 0;
+    h2{
+      text-align: center;
+      font-size: clamp(1.5rem, 10vw, 2rem);
+    }
+    p{
+     
+      width: fit-content;
+      padding-inline:5%;
+      text-align: center;
+      font-size: clamp(0.5rem, 4.5vw, 1rem);
+    }
+  }
+}
+@media  only screen and (min-width:400px) and (max-width:600px){
+  .thirdSection{
+    display: flex;
+    flex-direction: row;
+  }
+  .phoneImage{
+    transform:translateY(-70%);
+    position: absolute;
+  }
+}
+@media  only screen and (min-width:600px) and (max-width:800px){
+  .thirdSection{
+    display: flex;
+    flex-direction: row;
+  }
+  .phoneImage{
+    transform:translateY(-60%);
+    position: absolute;
+  }
+}
+
+@media  only screen and (max-width: 1100px){
+  .thirdSectionContent{
+    overflow: hidden;
+    h2{
+      text-align: center;
+    }
+    p{
+      height: fit-content;
+      max-width: 90%;
+      text-align: center;
+    }
+  }
+}
+
+/////////////////////////////////////fourthSection///////////
+
+.fourthSection{
+  width: clamp(70vw, 1440px, 100vw);
+  padding-block: 5%;
+  @include flexRow(); 
+  z-index: 5;
+}
+.laptopImage{
+  width: 50%;
+  height: auto;
+}
+.laptopImageMobile{
+  display: none;
+}
+@media  only screen and (max-width: 800px){
+  .fourthSection{
+    @include flexColumn();
+    padding-block: 20%;
+  }
+  .laptopImageMobile{
+    display: block;
+  }
+  .laptopImage{
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+  
+}
+
+
+@media only screen and (max-width:1100px){
+  .fourthSection{
+    @include flexColumn();
+    align-items: center;
+  }
+
+
+}
+//////////footer////////////
+
+.footerSection{
+  background-color: $footerBGColor;
+  color: $footerTextColor;
+  width: clamp(70vw, 1440px, 100vw);
+  border-top-right-radius: 5vw;
+  @include flexRow();
+  justify-content: space-evenly;
+  min-height: 30vh;
+}
+.bottomLogo{
+  
+  height: 100%;
+  display: block;
+  padding: 5%;
+  z-index: 10;
+}
+
+
+.bottomNavCategory{
+  padding:5% ;
+  font-family: $fontFamilyTwo;
+  color: white;
+  @include flexColumn();
+  gap: 15px;
+
+  a{
+    list-style: none;
+    color: $footerTextColor;
+    text-decoration: none;
+    padding-block:5% ;
+  }
+  a:hover{
+    text-decoration: underline;
+    transition: 400ms ease-in-out;
+    transform-origin: left;
+  }
+}
+@media only screen and (max-width:800px){
+  .footerSection{
+    @include flexColumn();
+    border-top-right-radius: 25vw;
+    text-align: center;
+  }
+  .bottomLogo{
+    width: 40%;
+    align-self: center;
+    padding-block:20% ;
+  }
+  .bottomNavCategory{
+    align-self: center;
+    padding-block: 10%;
+    a{
+      padding-block: 0%;
+      
+      font-size: clamp(1rem, 1vw, 2rem);
+    }
+    a:first-of-type{
+      margin-top: 20%;
+    }
+  }
+  
+}
+@media only screen and (min-width:800px){
+  .footerSection{
+   display: flex;
+   flex-direction: row;
+   border-top-right-radius: inherit;
+  }
+}
+///////////////UTILITY/////////////
+
+ .fw-300{
+font-weight: 300;
+}
+
+.fw-400{
+    font-weight: 400;
+}
+
+.fw-500{
+    font-weight: 500;
+}
+
+.fw-600{
+    font-weight: 600;
+}
+
+.fw-700{
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
